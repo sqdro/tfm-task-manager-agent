@@ -1,13 +1,49 @@
-# Byte-compiled / optimized / DLL files
+# Bytecode
 __pycache__/
-*.py[codz]
+*.py[cod]
 *$py.class
-
-# C extensions
 *.so
+.Python
+
+# Entorno virtual
+venv/
+ENV/
+env/
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# Modelos LLM
+*.gguf
+
+# Variables de entorno
+.env
+.env.local
+
+# Base de datos
+*.db
+*.sqlite
+
+# Logs
+*.log
+
+# Cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Gradio
+gradio_cached_examples/
 
 # Distribution / packaging
-.Python
 build/
 develop-eggs/
 dist/
@@ -27,8 +63,6 @@ share/python-wheels/
 MANIFEST
 
 # PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
 *.manifest
 *.spec
 
@@ -37,16 +71,9 @@ pip-log.txt
 pip-delete-this-directory.txt
 
 # Unit test / coverage reports
-htmlcov/
 .tox/
 .nox/
-.coverage
-.coverage.*
-.cache
 nosetests.xml
-coverage.xml
-*.cover
-*.py.cover
 .hypothesis/
 .pytest_cache/
 cover/
