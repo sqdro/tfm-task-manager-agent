@@ -9,5 +9,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copiar código fuente
 COPY . .
 
-ENTRYPOINT ["python", "-m", "app.main"]
+ENTRYPOINT ["python", "-m", "app"]
 CMD []

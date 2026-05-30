@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:6.0
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+
+  app:
+    build:
+      context: .
+      dockerfile: docker/
+    depends_on:
+      - mongo
+    environment:
+      # Conexión a Mongo apuntando al servicio 'mongo' del compose
+      - MONGODB_URI=mongodb://mongo:27017
+      - MONGODB_DB=tfm_db
+      # Ajustes de la app (se pueden importar desde un .env)
+      - GRADIO_PORT=7860
+      - LOG_LEVEL=INFO
+      - LOG_NAME=tfm
+      - API_KEY=
+      - LLM_MODEL=
+      - LLM_TEMPERATURE=0.1
+    ports:
+      - "7860:7860"
+    # Comando para ejecutar la aplicación
+    command: ["python", "-m", "app"]
+
+volumes:
+  mongo-data:

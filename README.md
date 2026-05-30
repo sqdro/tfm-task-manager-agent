@@ -78,10 +78,10 @@ MONGODB_URI=mongodb://localhost:27017
 MONGODB_DB=tfm_task_manager
 API_KEY=
 LLM_MODEL=gpt-3.5-turbo
-LLM_TEMPERATURE=0.0
+LLM_TEMPERATURE=0.1
 GRADIO_PORT=7860
 LOG_LEVEL=INFO
-LOG_NAME=tfm_task_manager_agent
+LOG_NAME=task_manager_agent
 ```
 
 ## Instalación
@@ -99,6 +99,30 @@ pip install -r requirements.txt
 ```bash
 python -m app
 ```
+
+### Usar Docker Compose
+
+Se incluye un archivo `docker-compose.yml` que levanta un servicio `mongo` y el servicio `app`.
+
+- Construir y levantar en segundo plano:
+
+```bash
+docker compose up --build -d
+```
+
+- Ver logs del servicio `app`:
+
+```bash
+docker compose logs -f app
+```
+
+La configuración del servicio `app` pasa las siguientes variables de entorno relevantes para la conexión a Mongo:
+
+- `MONGODB_URI=mongodb://mongo:27017`
+- `MONGODB_DB=tfm_db`
+
+Si se quiere usar un `.env` propio, crear uno basado en `.env.example`. `docker compose` cargará variables desde el entorno.
+
 
 ## Cómo funciona
 
